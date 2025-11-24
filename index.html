@@ -9,47 +9,68 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="container">
-            <div class="logo">
-                <a href="#home">Portfolio</a>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-content">
+            <!-- Profile Section -->
+            <div class="profile-section">
+                <div class="profile-image">
+                    <img src="https://via.placeholder.com/150" alt="Ndriçim Lahu">
+                </div>
+                <h2 class="profile-name">Ndriçim Lahu</h2>
             </div>
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#resume" class="nav-link">Resume</a></li>
-                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
-                <li><a href="#services" class="nav-link">Services</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="hamburger" id="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+
+            <!-- Dark Mode Toggle -->
+            <div class="dark-mode-toggle">
+                <button id="darkModeToggle" class="dark-mode-btn" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+
+            <!-- Social Links -->
+            <div class="sidebar-social">
+                <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+
+            <!-- Navigation Menu -->
+            <nav class="sidebar-nav">
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#about" class="nav-link"><i class="fas fa-user"></i> About</a></li>
+                    <li><a href="#skills" class="nav-link"><i class="fas fa-cogs"></i> Skills</a></li>
+                    <li><a href="#resume" class="nav-link"><i class="fas fa-file-alt"></i> Resume</a></li>
+                    <li><a href="#portfolio" class="nav-link"><i class="fas fa-briefcase"></i> Portfolio</a></li>
+                    <li><a href="#services" class="nav-link"><i class="fas fa-server"></i> Services</a></li>
+                    <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Footer -->
+            <div class="sidebar-footer">
+                <p>&copy; <strong>N.L Portfolio</strong> 2025. All Rights Reserved.</p>
+                <p>Powered by <span class="highlight">Ndriçim Lahu</span></p>
             </div>
         </div>
-    </nav>
+
+        <!-- Mobile Toggle -->
+        <div class="hamburger" id="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
 
     <!-- Home Section -->
     <section id="home" class="home-section">
-        <div class="home-content">
-            <div class="home-text">
-                <h1>Hi, I'm <span class="highlight">John Doe</span></h1>
-                <h2 class="typing-text">Full Stack Developer</h2>
-                <p>Welcome to my portfolio. I create amazing web experiences.</p>
-                <div class="home-buttons">
-                    <a href="#portfolio" class="btn btn-primary">View My Work</a>
-                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
-                </div>
-                <div class="social-links">
-                    <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
+        <div class="home-hero">
+            <h1>Ndriçim Lahu</h1>
+            <h2 class="hero-title">I'm Web Developer</h2>
         </div>
     </section>
 
@@ -57,36 +78,16 @@
     <section id="about" class="about-section">
         <div class="container">
             <div class="section-title">
-                <h2>About Me</h2>
-                <p>Get to know more about me</p>
+                <h2>About</h2>
             </div>
             <div class="about-content">
                 <div class="about-image">
                     <img src="https://via.placeholder.com/400x400" alt="Profile Picture">
                 </div>
                 <div class="about-text">
-                    <h3>I'm a passionate <span class="highlight">Developer</span></h3>
-                    <p>Hello! I'm a full-stack developer with a passion for creating innovative solutions and beautiful user experiences. With years of experience in web development, I specialize in building responsive and user-friendly applications.</p>
-                    <p>I love turning complex problems into simple, beautiful, and intuitive designs. When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, or sharing my knowledge with the community.</p>
-                    <div class="about-info">
-                        <div class="info-item">
-                            <span class="info-label">Name:</span>
-                            <span class="info-value">John Doe</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Email:</span>
-                            <span class="info-value">john.doe@example.com</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Phone:</span>
-                            <span class="info-value">+1 (555) 123-4567</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Location:</span>
-                            <span class="info-value">San Francisco, CA</span>
-                        </div>
-                    </div>
-                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                    <p>I'm a developer with a strong passion for continuous learning and growth in Information and Communication Technology. Motivated and ready to embrace new challenges with dedication and enthusiasm, I possess the skills and experience needed to test, design, develop, and implement both new and ongoing platforms. My detail-oriented analytical approach and strong problem-solving abilities are key strengths. Additionally, I thrive in team environments, contributing effectively to achieve project goals and ensure successful outcomes.</p>
+                    <p>I am also deeply committed to providing exceptional value to my clients and earning their trust. Client reviews and feedback are crucial to me, as they reflect the value I strive to deliver. My goal is to exceed expectations and offer more than what is anticipated. I prioritize being responsive and maintaining open lines of communication, treating every client with respect, understanding their needs, and genuinely working to improve their situations.</p>
+                    <p>So for more information about me, please check the sections below.</p>
                 </div>
             </div>
         </div>
@@ -96,126 +97,116 @@
     <section id="skills" class="skills-section">
         <div class="container">
             <div class="section-title">
-                <h2>My Skills</h2>
-                <p>Technologies I work with</p>
+                <h2>Skills</h2>
             </div>
-            <div class="skills-content">
-                <div class="skills-category">
-                    <h3>Frontend Development</h3>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>HTML5 & CSS3</span>
-                            <span>95%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 95%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>JavaScript</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>React.js</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Vue.js</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
-                        </div>
-                    </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fab fa-git-alt"></i>
+                    <h3>Git</h3>
                 </div>
-                <div class="skills-category">
-                    <h3>Backend Development</h3>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Node.js</span>
-                            <span>88%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 88%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Python</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>PHP</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>MySQL</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%"></div>
-                        </div>
-                    </div>
+                <div class="skill-card">
+                    <i class="fab fa-php"></i>
+                    <h3>PHP</h3>
                 </div>
-                <div class="skills-category">
-                    <h3>Other Skills</h3>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Git & GitHub</span>
-                            <span>92%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 92%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>UI/UX Design</span>
-                            <span>75%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 75%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Responsive Design</span>
-                            <span>95%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 95%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>RESTful APIs</span>
-                            <span>88%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 88%"></div>
-                        </div>
-                    </div>
+                <div class="skill-card">
+                    <i class="fab fa-adobe"></i>
+                    <h3>Adobe XD</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-html5"></i>
+                    <h3>HTML</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-laravel"></i>
+                    <h3>Laravel</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-palette"></i>
+                    <h3>Canva</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-css3-alt"></i>
+                    <h3>CSS</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-cuttlefish"></i>
+                    <h3>C++</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-docker"></i>
+                    <h3>Docker</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-bootstrap"></i>
+                    <h3>Bootstrap</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-java"></i>
+                    <h3>Java</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-box"></i>
+                    <h3>VirtualBox</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-js"></i>
+                    <h3>JavaScript</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-swift"></i>
+                    <h3>Swift</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-google"></i>
+                    <h3>Google Analytics</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-dollar-sign"></i>
+                    <h3>jQuery</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-python"></i>
+                    <h3>Python</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-microsoft"></i>
+                    <h3>Microsoft Office</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-react"></i>
+                    <h3>React</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-code"></i>
+                    <h3>JSON</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-windows"></i>
+                    <h3>Microsoft Windows</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-wordpress"></i>
+                    <h3>WordPress</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-database"></i>
+                    <h3>Microsoft SQL Server</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-apple"></i>
+                    <h3>Apple macOS</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-shopify"></i>
+                    <h3>Shopify</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-database"></i>
+                    <h3>MySQL</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-ubuntu"></i>
+                    <h3>Linux Ubuntu</h3>
                 </div>
             </div>
         </div>
@@ -226,54 +217,46 @@
         <div class="container">
             <div class="section-title">
                 <h2>Resume</h2>
-                <p>My professional experience and education</p>
             </div>
             <div class="resume-content">
                 <div class="resume-column">
-                    <h3><i class="fas fa-briefcase"></i> Experience</h3>
+                    <h3>EDUCATION</h3>
                     <div class="resume-item">
-                        <div class="resume-date">2021 - Present</div>
-                        <h4>Senior Full Stack Developer</h4>
-                        <p class="resume-company">Tech Solutions Inc.</p>
-                        <p>Leading development of enterprise web applications using React, Node.js, and MongoDB. Managing a team of 5 developers and implementing best practices for code quality and performance.</p>
+                        <h4>Web and Mobile Application Development</h4>
+                        <div class="resume-date">01/10/2019 — 20/10/2021</div>
+                        <p class="resume-company">Cactus Education</p>
+                        <p class="resume-description">Information and Communication Technologies</p>
+                        <a href="#" class="btn btn-primary btn-sm">View the Diploma</a>
                     </div>
                     <div class="resume-item">
-                        <div class="resume-date">2019 - 2021</div>
-                        <h4>Full Stack Developer</h4>
-                        <p class="resume-company">Digital Innovations Ltd.</p>
-                        <p>Developed and maintained multiple web applications using modern JavaScript frameworks. Collaborated with designers and stakeholders to deliver high-quality products.</p>
-                    </div>
-                    <div class="resume-item">
-                        <div class="resume-date">2017 - 2019</div>
-                        <h4>Junior Web Developer</h4>
-                        <p class="resume-company">StartUp Hub</p>
-                        <p>Built responsive websites and web applications. Worked on both frontend and backend development using HTML, CSS, JavaScript, and PHP.</p>
+                        <h4>Informatics</h4>
+                        <div class="resume-date">01/09/2016 — 31/05/2019</div>
+                        <p class="resume-company">SHMT "Lutfi Musiqi"</p>
+                        <p class="resume-description">Information Technology</p>
+                        <a href="#" class="btn btn-primary btn-sm">View the Diploma</a>
                     </div>
                 </div>
                 <div class="resume-column">
-                    <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                    <h3>TRAINING COURSES</h3>
                     <div class="resume-item">
-                        <div class="resume-date">2013 - 2017</div>
-                        <h4>Bachelor of Science in Computer Science</h4>
-                        <p class="resume-company">University of Technology</p>
-                        <p>Graduated with honors. Specialized in software engineering and web technologies. Completed multiple projects including a senior thesis on modern web application architecture.</p>
+                        <h4>React - The Complete Guide (incl. React Router & Redux)</h4>
+                        <div class="resume-date">Current</div>
+                        <p class="resume-company">Udemy</p>
+                        <a href="#" class="btn btn-primary btn-sm">View the Course</a>
                     </div>
                     <div class="resume-item">
-                        <div class="resume-date">2018</div>
-                        <h4>Full Stack Web Development Bootcamp</h4>
-                        <p class="resume-company">Code Academy</p>
-                        <p>Intensive 12-week program covering modern web development technologies including React, Node.js, Express, and MongoDB.</p>
+                        <h4>Web Development</h4>
+                        <div class="resume-date">24/08/2021</div>
+                        <p class="resume-company">Open Data Kosovo</p>
+                        <a href="#" class="btn btn-primary btn-sm">View the Certificate</a>
                     </div>
                     <div class="resume-item">
-                        <div class="resume-date">2020</div>
-                        <h4>AWS Certified Developer</h4>
-                        <p class="resume-company">Amazon Web Services</p>
-                        <p>Certification demonstrating expertise in developing and maintaining applications on the AWS platform.</p>
+                        <h4>IT Essentials</h4>
+                        <div class="resume-date">30/06/2020</div>
+                        <p class="resume-company">Cisco Networking Academy</p>
+                        <a href="#" class="btn btn-primary btn-sm">View the Certificate</a>
                     </div>
                 </div>
-            </div>
-            <div class="resume-download">
-                <a href="#" class="btn btn-primary"><i class="fas fa-download"></i> Download Resume</a>
             </div>
         </div>
     </section>
@@ -283,7 +266,6 @@
         <div class="container">
             <div class="section-title">
                 <h2>Portfolio</h2>
-                <p>Check out my recent work</p>
             </div>
             <div class="portfolio-filters">
                 <button class="filter-btn active" data-filter="all">All</button>
@@ -379,7 +361,6 @@
         <div class="container">
             <div class="section-title">
                 <h2>Services</h2>
-                <p>What I can do for you</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
@@ -432,8 +413,7 @@
     <section id="contact" class="contact-section">
         <div class="container">
             <div class="section-title">
-                <h2>Get In Touch</h2>
-                <p>Let's work together</p>
+                <h2>Contact</h2>
             </div>
             <div class="contact-content">
                 <div class="contact-info">
@@ -484,20 +464,12 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2024 Personal Portfolio. All rights reserved.</p>
-                <div class="footer-social">
-                    <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    </main>
 
     <script src="script.js"></script>
 </body>

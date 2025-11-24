@@ -1,8 +1,49 @@
-// Mobile menu toggle
+// ==================== SIDEBAR TOGGLE (Mobile) ====================
 const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('nav-menu');
+const sidebar = document.getElementById('sidebar');
+const mainContent = document.getElementById('mainContent');
 
-// Smooth scrolling for navigation links
+hamburger.addEventListener('click', () => {
+    sidebar.classList.toggle('active');
+});
+
+// Close sidebar when clicking outside on mobile
+mainContent.addEventListener('click', () => {
+    if (sidebar.classList.contains('active')) {
+        sidebar.classList.remove('active');
+    }
+});
+
+// ==================== DARK MODE TOGGLE ====================
+const darkModeToggle = document.getElementById('darkModeToggle');
+const body = document.body;
+const darkModeIcon = darkModeToggle.querySelector('i');
+
+// Check for saved dark mode preference
+const savedDarkMode = localStorage.getItem('darkMode');
+if (savedDarkMode === 'enabled') {
+    body.classList.add('dark-mode');
+    darkModeIcon.classList.remove('fa-moon');
+    darkModeIcon.classList.add('fa-sun');
+}
+
+// Toggle dark mode
+darkModeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    
+    // Update icon
+    if (body.classList.contains('dark-mode')) {
+        darkModeIcon.classList.remove('fa-moon');
+        darkModeIcon.classList.add('fa-sun');
+        localStorage.setItem('darkMode', 'enabled');
+    } else {
+        darkModeIcon.classList.remove('fa-sun');
+        darkModeIcon.classList.add('fa-moon');
+        localStorage.setItem('darkMode', 'disabled');
+    }
+});
+
+// ==================== SMOOTH SCROLLING ====================
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', function(e) {
         e.preventDefault();
@@ -10,42 +51,34 @@ document.querySelectorAll('.nav-link').forEach(link => {
         const targetSection = document.querySelector(targetId);
         
         if (targetSection) {
-            targetSection.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+            // Calculate offset for fixed sidebar
+            const offsetTop = targetSection.offsetTop;
+            
+            // Smooth scroll to section
+            window.scrollTo({
+                top: offsetTop - 20,
+                behavior: 'smooth'
             });
         }
         
-        // Close mobile menu after clicking
-        navMenu.classList.remove('active');
+        // Close mobile sidebar after clicking
+        if (window.innerWidth <= 768) {
+            sidebar.classList.remove('active');
+        }
     });
 });
 
-hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-});
-
-// Navbar scroll effect
-window.addEventListener('scroll', () => {
-    const navbar = document.getElementById('navbar');
-    if (window.scrollY > 50) {
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-    } else {
-        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-    }
-});
-
-// Active navigation link based on scroll position
+// ==================== ACTIVE NAVIGATION HIGHLIGHT ====================
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('.nav-link');
 
-window.addEventListener('scroll', () => {
+function updateActiveNav() {
     let current = '';
     
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
-        if (window.pageYOffset >= sectionTop - 100) {
+        if (window.pageYOffset >= sectionTop - 150) {
             current = section.getAttribute('id');
         }
     });
@@ -56,9 +89,14 @@ window.addEventListener('scroll', () => {
             link.classList.add('active');
         }
     });
-});
+}
 
-// Portfolio filter functionality
+window.addEventListener('scroll', updateActiveNav);
+
+// Set initial active state
+updateActiveNav();
+
+// ==================== PORTFOLIO FILTER ====================
 const filterBtns = document.querySelectorAll('.filter-btn');
 const portfolioItems = document.querySelectorAll('.portfolio-item');
 
@@ -73,156 +111,132 @@ filterBtns.forEach(btn => {
         
         portfolioItems.forEach(item => {
             if (filterValue === 'all') {
-                item.style.display = 'block';
-                setTimeout(() => {
-                    item.style.opacity = '1';
-                    item.style.transform = 'scale(1)';
-                }, 10);
+                item.classList.remove('hide');
             } else {
                 const category = item.getAttribute('data-category');
                 if (category === filterValue) {
-                    item.style.display = 'block';
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'scale(1)';
-                    }, 10);
+                    item.classList.remove('hide');
                 } else {
-                    item.style.opacity = '0';
-                    item.style.transform = 'scale(0.8)';
-                    setTimeout(() => {
-                        item.style.display = 'none';
-                    }, 300);
+                    item.classList.add('hide');
                 }
             }
         });
     });
 });
 
-// Typing effect for home section
-const typingText = document.querySelector('.typing-text');
-const textArray = ['Full Stack Developer', 'Web Designer', 'UI/UX Enthusiast', 'Problem Solver'];
-let textIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
+// ==================== SCROLL TO TOP BUTTON ====================
+const scrollToTopBtn = document.getElementById('scrollToTop');
 
-function typeEffect() {
-    const currentText = textArray[textIndex];
-    
-    if (isDeleting) {
-        typingText.textContent = currentText.substring(0, charIndex - 1);
-        charIndex--;
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+        scrollToTopBtn.classList.add('show');
     } else {
-        typingText.textContent = currentText.substring(0, charIndex + 1);
-        charIndex++;
+        scrollToTopBtn.classList.remove('show');
     }
-    
-    if (!isDeleting && charIndex === currentText.length) {
-        isDeleting = true;
-        setTimeout(typeEffect, 2000);
-        return;
-    }
-    
-    if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        textIndex = (textIndex + 1) % textArray.length;
-    }
-    
-    const typingSpeed = isDeleting ? 50 : 100;
-    setTimeout(typeEffect, typingSpeed);
-}
+});
 
-// Start typing effect when page loads
-setTimeout(typeEffect, 1000);
+scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
 
-// Animate skill bars on scroll
-let skillBarsAnimated = false;
-const animateSkillBars = () => {
-    if (skillBarsAnimated) return;
-    
-    const skillsSection = document.querySelector('.skills-section');
-    const skillBars = document.querySelectorAll('.skill-progress');
-    const sectionTop = skillsSection.offsetTop;
-    const scrollPosition = window.pageYOffset + window.innerHeight;
-    
-    if (scrollPosition > sectionTop + 100) {
-        skillBars.forEach(bar => {
-            const targetWidth = bar.getAttribute('style').match(/width:\s*(\d+%)/)?.[1] || '0%';
-            bar.style.width = '0%';
-            setTimeout(() => {
-                bar.style.width = targetWidth;
-            }, 100);
-        });
-        
-        skillBarsAnimated = true;
-        // Remove event listener after animation
-        window.removeEventListener('scroll', animateSkillBars);
-    }
-};
-
-window.addEventListener('scroll', animateSkillBars);
-
-// Form submission
+// ==================== CONTACT FORM ====================
 const contactForm = document.querySelector('.contact-form');
+
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        alert('Thank you for your message! I will get back to you soon.');
+        
+        // Get form values
+        const name = contactForm.querySelector('input[type="text"]').value;
+        const email = contactForm.querySelector('input[type="email"]').value;
+        const subject = contactForm.querySelectorAll('input[type="text"]')[1].value;
+        const message = contactForm.querySelector('textarea').value;
+        
+        // Show success message
+        alert(`Thank you, ${name}! Your message has been received. I'll get back to you soon at ${email}.`);
+        
+        // Reset form
         contactForm.reset();
     });
 }
 
-// Scroll to top button (optional enhancement)
-const createScrollToTopBtn = () => {
-    const btn = document.createElement('button');
-    btn.innerHTML = '<i class="fas fa-arrow-up"></i>';
-    btn.className = 'scroll-to-top';
-    
-    document.body.appendChild(btn);
-    
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-            btn.style.display = 'flex';
-        } else {
-            btn.style.display = 'none';
-        }
-    });
-    
-    btn.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-};
-
-// Initialize scroll to top button
-createScrollToTopBtn();
-
-// Add fade-in animation on scroll for sections
+// ==================== FADE IN SECTIONS ON SCROLL ====================
 const observerOptions = {
     threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
+    rootMargin: '0px 0px -50px 0px'
 };
 
-const observer = new IntersectionObserver((entries) => {
+const fadeInObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.add('fade-in-up');
+            fadeInObserver.unobserve(entry.target);
         }
     });
 }, observerOptions);
 
-// Observe all sections
-document.querySelectorAll('section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(30px)';
-    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(section);
+// Observe all sections except the first one (About)
+const allSections = document.querySelectorAll('section');
+allSections.forEach((section, index) => {
+    if (index > 0) { // Skip first section (About)
+        fadeInObserver.observe(section);
+    }
 });
 
-// Prevent home section from fading in since it's visible on load
-document.querySelector('.home-section').style.opacity = '1';
-document.querySelector('.home-section').style.transform = 'translateY(0)';
+// ==================== TYPING EFFECT (Optional - for future hero section) ====================
+function createTypingEffect(element, texts, typingSpeed = 100, deletingSpeed = 50, delayBetween = 2000) {
+    if (!element) return;
+    
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    
+    function type() {
+        const currentText = texts[textIndex];
+        
+        if (isDeleting) {
+            element.textContent = currentText.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            element.textContent = currentText.substring(0, charIndex + 1);
+            charIndex++;
+        }
+        
+        if (!isDeleting && charIndex === currentText.length) {
+            isDeleting = true;
+            setTimeout(type, delayBetween);
+            return;
+        }
+        
+        if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            textIndex = (textIndex + 1) % texts.length;
+        }
+        
+        const speed = isDeleting ? deletingSpeed : typingSpeed;
+        setTimeout(type, speed);
+    }
+    
+    setTimeout(type, 500);
+}
 
+// Example usage (uncomment if you add a hero section with typing text):
+// const typingElement = document.querySelector('.typing-text');
+// if (typingElement) {
+//     createTypingEffect(typingElement, [
+//         'Full Stack Developer',
+//         'Web Designer',
+//         'UI/UX Enthusiast',
+//         'Problem Solver'
+//     ]);
+// }
+
+// ==================== INITIALIZE ====================
 console.log('Portfolio website loaded successfully!');
+console.log('Sidebar layout with dark mode enabled.');
+
+// Add smooth scroll behavior to entire page
+document.documentElement.style.scrollBehavior = 'smooth';
