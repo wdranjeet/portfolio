@@ -52,9 +52,9 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--bg-color);
-    display: grid;
-    grid-template-columns: var(--sidebar-width) 1fr;
     min-height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
 /* ==================== SIDEBAR ==================== */
