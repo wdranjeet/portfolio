@@ -132,9 +132,9 @@ Contributions, issues, and feature requests are welcome!
 ## 👤 Author
 
 **Your Name**
-- Website: [your-website.com](https://your-website.com)
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your Name](https://linkedin.com/in/yourprofile)
+- Website: [Visit My Website](https://wdranjeet.github.io/portfolio/)
+- GitHub: [@wdranjeet](https://github.com/wdranjeet)
+- LinkedIn: [Ranjeet](https://linkedin.com/in/mahtoranjeet)
 
 ## ⭐ Show your support
 
